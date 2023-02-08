@@ -12,7 +12,7 @@ jobs:
   check-in:
     runs-on: ubuntu-latest
     steps:
-    - uses: ahmubashshir/genshin-check-in@master
+    - uses: niizam/grassenter@master
       with:
         id:     ${{ secrets.MHYACID }}
         uuid:   ${{ secrets.MHYUUID }}
