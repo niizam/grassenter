@@ -94,7 +94,7 @@ class Client:
     @property
     def checked_in(self):
         """ Did check-in today? """
-        return self.user.get('is_sign', None)
+        return self.user.get('is_sign', -1)
 
     @property
     def days(self):
