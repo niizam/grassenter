@@ -1,6 +1,6 @@
-# GitHub action for checking in on Genshin Web Event
+# GitHub action for Anime
 
-Setup this repo, then forget the hassle of checking in to Genshin Daily Web Event manually.
+Setup this repo, then forget the hassle of checking in to Anime Event manually.
 
 
 ### Setup Instruction
@@ -9,6 +9,19 @@ Setup this repo, then forget the hassle of checking in to Genshin Daily Web Even
      * `_MHYUUID`
      * `account_id`
      * `cookie_token`
+ * Copy and Paste this to the browser console to get cookies above
+```
+var cookie=start();
+var ask=confirm('Cookie: '+cookie+'\n\nClick confirm to copy Cookie.');if(ask==true){copy(cookie);msg=cookie}else{msg='Cancel'}
+function start() {
+    return "_MHYUUID=" + getCookie("_MHYUUID") + ";account_id=" + getCookie("account_id") + ";cookie_token=" + getCookie("cookie_token");
+    function getCookie(name) {
+        const value = ";" + document.cookie;
+        const parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+}
+```
  * Set cookies in `Repo Settings > Secrets`
    * `_MHYUUID`     -> `MHYUUID`
    * `account_id`   -> `MHYACID`
@@ -16,7 +29,7 @@ Setup this repo, then forget the hassle of checking in to Genshin Daily Web Even
  * Create a github action
    ```yaml
    # Can be anything you want
-   name: Genshin check-in
+   name: Anime enter
 
    on:
      # Allow manual start
@@ -30,7 +43,7 @@ Setup this repo, then forget the hassle of checking in to Genshin Daily Web Even
      check-in:
        runs-on: ubuntu-latest
        steps:
-       - uses: ahmubashshir/genshin-check-in@master
+       - uses: niizam/grassenter@master
          with:
            # MiHoYo Account ID, required.
            id:    ${{ secrets.MHYACID }}
