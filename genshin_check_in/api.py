@@ -92,11 +92,6 @@ class Client:
         return self._user
 
     @property
-    def checked_in(self):
-        """ Did check-in today? """
-        return self.user.get('is_sign', -1)
-
-    @property
     def days(self):
         """ Total days checked-in """
         return self.user.get('total_sign_day', -1)
