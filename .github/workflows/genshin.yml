@@ -10,7 +10,7 @@ on:
 jobs:
   # check-in now
   check-in:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - uses: niizam/grassenter@master
       with:
